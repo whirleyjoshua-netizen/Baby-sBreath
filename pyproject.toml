@@ -1,0 +1,17 @@
+[project]
+name = "babys-breath"
+version = "0.1.0"
+description = "Your baby is talking to you"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "aiosqlite>=0.20.0",
+    "groq>=0.11.0",
+    "google-generativeai>=0.8.0",
+    "python-dotenv>=1.0.0",
+    "websockets>=13.0",
+]
+
+[project.scripts]
+babys-breath = "babys_breath.server:main"

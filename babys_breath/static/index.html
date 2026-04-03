@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#fef0f5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="description" content="Your baby is talking to you">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/static/icon-192.png">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Baby's Breath</title>
+</head>
+<body>
+    <!-- ─── SETUP VIEW ─── -->
+    <div id="setup-view" class="view hidden">
+        <div class="setup-container">
+            <div class="setup-header">
+                <div class="setup-icon">&#x1F331;</div>
+                <h1>Baby's Breath</h1>
+                <p class="setup-subtitle">Your baby wants to talk to you</p>
+            </div>
+
+            <form id="setup-form" class="setup-form">
+                <div class="form-group">
+                    <label for="mom-name">What's your name, mama?</label>
+                    <input type="text" id="mom-name" placeholder="Your name" required autocomplete="given-name">
+                </div>
+
+                <div class="form-group">
+                    <label for="baby-name">Got a name picked out? <span class="optional">(optional)</span></label>
+                    <input type="text" id="baby-name" placeholder="Baby's name or nickname">
+                </div>
+
+                <div class="form-group">
+                    <label for="due-date">When's the big day?</label>
+                    <input type="date" id="due-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you know the gender?</label>
+                    <div class="gender-options">
+                        <button type="button" class="gender-btn" data-gender="girl">Girl</button>
+                        <button type="button" class="gender-btn" data-gender="boy">Boy</button>
+                        <button type="button" class="gender-btn active" data-gender="surprise">Surprise!</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="setup-submit">Start Talking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ─── CHAT VIEW ─── -->
+    <div id="chat-view" class="view hidden">
+        <header class="chat-header">
+            <div class="header-left">
+                <div class="baby-avatar">&#x1F476;</div>
+                <div class="header-info">
+                    <span class="header-name" id="header-baby-name">Baby</span>
+                    <span class="header-week" id="header-week">Week 12</span>
+                </div>
+            </div>
+            <button class="header-btn" id="info-btn" title="Baby info">&#x1F4D6;</button>
+        </header>
+
+        <div class="chat-container" id="chat-messages">
+            <!-- Messages appear here -->
+        </div>
+
+        <div class="typing-indicator hidden" id="typing">
+            <div class="bubble-baby typing-bubble">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chat-input"
+                   placeholder="Talk to your baby..."
+                   autocomplete="off" enterkeyhint="send">
+            <button class="send-btn" id="send-btn">&#x2764;</button>
+        </div>
+    </div>
+
+    <!-- ─── INFO VIEW ─── -->
+    <div id="info-view" class="view hidden">
+        <header class="info-header">
+            <button class="back-btn" id="back-btn">&#x2190;</button>
+            <h2>This Week</h2>
+        </header>
+
+        <div class="info-content">
+            <div class="info-card size-card">
+                <div class="size-emoji" id="info-size-emoji">&#x1F34C;</div>
+                <div class="size-text">
+                    <h3 id="info-week-title">Week 20</h3>
+                    <p id="info-size">The size of a banana</p>
+                    <p class="size-detail" id="info-dimensions"></p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>What I'm developing</h3>
+                <ul id="info-developing"></ul>
+            </div>
+
+            <div class="info-card">
+                <h3>What I can do</h3>
+                <ul id="info-can-do"></ul>
+            </div>
+
+            <div class="info-card fun-fact-card">
+                <h3>Fun fact</h3>
+                <p id="info-fun-fact"></p>
+            </div>
+
+            <div class="info-card">
+                <h3>How you might be feeling</h3>
+                <ul id="info-mom-feeling"></ul>
+            </div>
+
+            <div class="info-card mood-card">
+                <h3>Your mood lately</h3>
+                <div class="mood-trend" id="mood-trend"></div>
+                <div class="mood-dots" id="mood-dots"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
